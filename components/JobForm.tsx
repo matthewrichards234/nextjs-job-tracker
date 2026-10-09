@@ -10,7 +10,7 @@ const JobForm = ({ isOpen, handleCloseForm }) => {
     console.log(data);
   }
   return (
-    <Modal show={isOpen} dismissible className="">
+    <Modal show={isOpen} dismissible onClose={handleCloseForm}>
       <ModalHeader className="font-bold">Start Tracking A Job!</ModalHeader>
       <ModalBody>
         <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
