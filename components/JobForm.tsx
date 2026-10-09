@@ -2,6 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import FieldInputs from "./FieldInputs";
+import { Modal } from "flowbite-react";
 
 const JobForm = ({ isOpen, handleCloseForm }) => {
   const { register, handleSubmit } = useForm();
@@ -9,7 +10,7 @@ const JobForm = ({ isOpen, handleCloseForm }) => {
     console.log(data);
   }
   return (
-    <div className={isOpen ? "visible" : "hidden"}>
+    <Modal show={isOpen}>
       <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
         <span
           aria-hidden="true"
@@ -26,7 +27,7 @@ const JobForm = ({ isOpen, handleCloseForm }) => {
         />
         <input type="submit" className="border border-white rounded-lg" />
       </form>
-    </div>
+    </Modal>
   );
 };
 
