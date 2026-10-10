@@ -3,6 +3,7 @@
 import { useForm } from "react-hook-form";
 import FieldInputs from "./FieldInputs";
 import { Modal, ModalBody, ModalHeader, ModalFooter } from "flowbite-react";
+import ModalSection from "./ModalSection";
 
 const JobForm = ({ isOpen, handleCloseForm }) => {
   const { register, handleSubmit } = useForm();
@@ -13,13 +14,27 @@ const JobForm = ({ isOpen, handleCloseForm }) => {
     <Modal show={isOpen} dismissible onClose={handleCloseForm}>
       <ModalHeader className="font-bold">Start Tracking A Job!</ModalHeader>
       <ModalBody>
-        <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
-          <FieldInputs
-            register={register}
-            name={"Company"}
-            placeholder={"Company"}
-            required={true}
-          />
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="flex flex-row justify-evenly content-evenly">
+            <div className="flex flex-col">
+              <p className="text-sm">COMPANY</p>
+              <FieldInputs
+                register={register}
+                name={"Company"}
+                placeholder={"Company"}
+                required={true}
+              />
+            </div>
+            <div className="flex flex-col">
+              <p className="text-sm">JOB TITLE</p>
+              <FieldInputs
+                register={register}
+                name={"Job Title"}
+                placeholder={"Job Title"}
+                required={true}
+              />
+            </div>
+          </div>
         </form>
       </ModalBody>
       <ModalFooter>
