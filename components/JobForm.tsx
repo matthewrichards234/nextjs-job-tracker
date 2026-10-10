@@ -6,8 +6,13 @@ import { Modal, ModalBody, ModalHeader, ModalFooter } from "flowbite-react";
 import ModalSection from "./ModalSection";
 
 const JobForm = ({ isOpen, handleCloseForm }) => {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   function onSubmit(data) {
+    console.log("I HAVE BEEN CLICKED!");
     console.log(data);
   }
   return (
@@ -55,14 +60,14 @@ const JobForm = ({ isOpen, handleCloseForm }) => {
               />
             }
           />
+          <ModalFooter>
+            <input
+              type="submit"
+              className="cursor-pointer font-bold text-xl hover:text-[#D3D3D3] m-auto"
+            />
+          </ModalFooter>
         </form>
       </ModalBody>
-      <ModalFooter>
-        <input
-          type="submit"
-          className="cursor-pointer font-bold text-xl hover:text-[#D3D3D3] m-auto"
-        />
-      </ModalFooter>
     </Modal>
   );
 };
