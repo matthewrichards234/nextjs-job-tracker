@@ -15,32 +15,52 @@ const JobForm = ({ isOpen, handleCloseForm }) => {
       <ModalHeader className="font-bold">Start Tracking A Job!</ModalHeader>
       <ModalBody>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="flex flex-row justify-evenly content-evenly">
-            <div className="flex flex-col">
-              <p className="text-sm">COMPANY</p>
+          <ModalSection
+            title1="Company*"
+            title2="Job Title*"
+            input1={
               <FieldInputs
                 register={register}
                 name={"Company"}
                 placeholder={"Company"}
                 required={true}
               />
-            </div>
-            <div className="flex flex-col">
-              <p className="text-sm">JOB TITLE</p>
+            }
+            input2={
               <FieldInputs
                 register={register}
                 name={"Job Title"}
                 placeholder={"Job Title"}
                 required={true}
               />
-            </div>
-          </div>
+            }
+          ></ModalSection>
+          <ModalSection
+            title1="Location"
+            title2="Job URL"
+            input1={
+              <FieldInputs
+                register={register}
+                name={"Location"}
+                placeholder={"Location"}
+                required={false}
+              />
+            }
+            input2={
+              <FieldInputs
+                register={register}
+                name={"JOB URL"}
+                placeholder={"Job URL"}
+                required={false}
+              />
+            }
+          />
         </form>
       </ModalBody>
       <ModalFooter>
         <input
           type="submit"
-          className="cursor-pointer font-bold text-lg hover:text-[#D3D3D3]"
+          className="cursor-pointer font-bold text-xl hover:text-[#D3D3D3] m-auto"
         />
       </ModalFooter>
     </Modal>
