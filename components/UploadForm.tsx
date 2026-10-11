@@ -5,7 +5,12 @@ import FieldInputs from "./FieldInputs";
 import { Modal, ModalBody, ModalHeader, ModalFooter } from "flowbite-react";
 import ModalSection from "./ModalSection";
 
-const UploadForm = ({ isOpen, handleCloseForm, setIsOpen }) => {
+const UploadForm = ({
+  isOpen,
+  handleCloseForm,
+  setIsOpen,
+  handleCreatePost,
+}) => {
   const {
     register,
     handleSubmit,
@@ -15,6 +20,7 @@ const UploadForm = ({ isOpen, handleCloseForm, setIsOpen }) => {
     console.log("I HAVE BEEN CLICKED!");
     console.log(data);
     setIsOpen("");
+    handleCreatePost(data);
   }
   return (
     <Modal show={isOpen} dismissible onClose={handleCloseForm}>
@@ -35,7 +41,7 @@ const UploadForm = ({ isOpen, handleCloseForm, setIsOpen }) => {
             input2={
               <FieldInputs
                 register={register}
-                name={"Job Title"}
+                name={"Title"}
                 placeholder={"Job Title"}
                 required={true}
               />
@@ -55,7 +61,7 @@ const UploadForm = ({ isOpen, handleCloseForm, setIsOpen }) => {
             input2={
               <FieldInputs
                 register={register}
-                name={"JOB URL"}
+                name={"Job_URL"}
                 placeholder={"Job URL"}
                 required={false}
               />

@@ -6,8 +6,17 @@ import JobModal from "@/components/JobModal";
 
 import { useState } from "react";
 
+export type Job = {
+  Company: string;
+  Title: string;
+  Location: string;
+  Job_URL: string;
+};
+
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState("");
+
+  const [jobs, setJobs] = useState<Job[]>([]);
 
   function closeModal() {
     setIsModalOpen("");
@@ -21,6 +30,23 @@ export default function Home() {
     setIsModalOpen("job-information");
   }
 
+  function handleCreatePost(data) {
+    console.log("POST CREATED");
+
+    const newPost = {
+      Company: data.Company,
+      Title: data.Title,
+      Location: data.Location,
+      Job_URL: data.Job_URL,
+    };
+
+    console.log("NEW POST: ", newPost);
+
+    setJobs((prevJobs) => [...prevJobs, newPost]);
+
+    console.log(jobs);
+  }
+
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <h1 className="font-bold text-5xl">
@@ -32,11 +58,12 @@ export default function Home() {
       >
         upload job
       </button>
-      <Board setOpenJobModal={openJobInformationModal} />
+      <Board setOpenJobModal={openJobInformationModal} listOfJobs={jobs} />
       <UploadForm
         isOpen={isModalOpen === "upload-form"}
         handleCloseForm={closeModal}
         setIsOpen={setIsModalOpen}
+        handleCreatePost={handleCreatePost}
       />
       <JobModal
         isOpen={isModalOpen === "job-information"}
