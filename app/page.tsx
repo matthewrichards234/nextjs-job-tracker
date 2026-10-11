@@ -1,19 +1,24 @@
 "use client";
 
 import Board from "@/components/Board";
-import JobForm from "@/components/JobForm";
+import UploadForm from "@/components/UploadForm";
+import JobModal from "@/components/JobModal";
 
 import { useState } from "react";
 
 export default function Home() {
-  const [isFormOpen, setIsFormOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState("");
 
-  function closeForm() {
-    setIsFormOpen(false);
+  function closeModal() {
+    setIsModalOpen("");
   }
 
-  function openForm() {
-    setIsFormOpen(true);
+  function openUploadFormModal() {
+    setIsModalOpen("upload-form");
+  }
+
+  function openJobInformationModal() {
+    setIsModalOpen("job-information");
   }
 
   return (
@@ -23,15 +28,20 @@ export default function Home() {
       </h1>
       <button
         className="bg-black text-[#F5F5DC] border rounded-lg px-4 py-2 hover:bg-[#2C2D2D] cursor-pointer"
-        onClick={openForm}
+        onClick={openUploadFormModal}
       >
         upload job
       </button>
-      <Board />
-      <JobForm
-        isOpen={isFormOpen}
-        handleCloseForm={closeForm}
-        setIsOpen={setIsFormOpen}
+      <Board setOpenJobModal={openJobInformationModal} />
+      <UploadForm
+        isOpen={isModalOpen === "upload-form"}
+        handleCloseForm={closeModal}
+        setIsOpen={setIsModalOpen}
+      />
+      <JobModal
+        isOpen={isModalOpen === "job-information"}
+        handleOnClick={openJobInformationModal}
+        handleCloseModal={closeModal}
       />
     </div>
   );
