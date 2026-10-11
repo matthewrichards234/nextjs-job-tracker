@@ -40,7 +40,6 @@ export default function Home() {
       />
       <JobModal
         isOpen={isModalOpen === "job-information"}
-        handleOnClick={openJobInformationModal}
         handleCloseModal={closeModal}
       />
     </div>

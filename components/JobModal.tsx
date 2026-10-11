@@ -1,6 +1,12 @@
 import { Modal, ModalBody, ModalFooter, ModalHeader } from "flowbite-react";
 
-const JobModal = ({ isOpen, handleCloseModal, handleOnClick }) => {
+const JobModal = ({
+  isOpen,
+  handleCloseModal,
+}: {
+  isOpen: boolean;
+  handleCloseModal: () => void;
+}) => {
   return (
     <Modal show={isOpen} onClose={handleCloseModal} dismissible>
       <ModalHeader>Terms of Service</ModalHeader>
