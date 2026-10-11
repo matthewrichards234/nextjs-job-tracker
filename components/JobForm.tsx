@@ -5,7 +5,7 @@ import FieldInputs from "./FieldInputs";
 import { Modal, ModalBody, ModalHeader, ModalFooter } from "flowbite-react";
 import ModalSection from "./ModalSection";
 
-const JobForm = ({ isOpen, handleCloseForm }) => {
+const JobForm = ({ isOpen, handleCloseForm, setIsOpen }) => {
   const {
     register,
     handleSubmit,
@@ -14,6 +14,7 @@ const JobForm = ({ isOpen, handleCloseForm }) => {
   function onSubmit(data) {
     console.log("I HAVE BEEN CLICKED!");
     console.log(data);
+    setIsOpen(false);
   }
   return (
     <Modal show={isOpen} dismissible onClose={handleCloseForm}>

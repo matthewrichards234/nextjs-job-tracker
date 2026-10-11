@@ -28,7 +28,11 @@ export default function Home() {
         upload job
       </button>
       <Board />
-      <JobForm isOpen={isFormOpen} handleCloseForm={closeForm} />
+      <JobForm
+        isOpen={isFormOpen}
+        handleCloseForm={closeForm}
+        setIsOpen={setIsFormOpen}
+      />
     </div>
   );
 }
