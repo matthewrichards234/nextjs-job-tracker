@@ -21,7 +21,9 @@ const Board = ({
             key={status}
             title={status}
             handleOpenModal={setOpenJobModal}
-            jobs={listOfJobs}
+            jobs={listOfJobs.filter((job) => {
+              return job.status === status;
+            })}
           />
         );
       })}
