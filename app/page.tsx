@@ -58,13 +58,6 @@ export default function Home() {
       return job.id !== id;
     });
     setJobs(filteredJobs);
-    console.log(filteredJobs);
-    console.log("FUNCTIONC CALLED");
-    console.log(jobs);
-    console.log(
-      id,
-      jobs.map((job) => job.id),
-    );
   }
 
   return (

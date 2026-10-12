@@ -15,12 +15,12 @@ const UploadForm = ({
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
   function onSubmit(data) {
-    console.log("I HAVE BEEN CLICKED!");
-    console.log(data);
     setIsOpen("");
     handleCreatePost(data);
+    reset();
   }
   return (
     <Modal show={isOpen} dismissible onClose={handleCloseForm}>
