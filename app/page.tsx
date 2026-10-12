@@ -11,6 +11,7 @@ export type Job = {
   Title: string;
   Location: string;
   Job_URL: string;
+  date: string;
 };
 
 export default function Home() {
@@ -31,20 +32,18 @@ export default function Home() {
   }
 
   function handleCreatePost(data) {
-    console.log("POST CREATED");
+    const date = new Date();
+    const today = date.toLocaleDateString();
 
     const newPost = {
       Company: data.Company,
       Title: data.Title,
       Location: data.Location,
       Job_URL: data.Job_URL,
+      date: today,
     };
 
-    console.log("NEW POST: ", newPost);
-
     setJobs((prevJobs) => [...prevJobs, newPost]);
-
-    console.log(jobs);
   }
 
   return (

@@ -27,9 +27,9 @@ const StatusSection = ({
           <JobCard
             key={job}
             onClick={handleOpenModal}
-            title="TEST"
-            company="TEST"
-            date="TEST"
+            title={job.Title}
+            company={job.Company}
+            date={job.date}
           />
         );
       })}
