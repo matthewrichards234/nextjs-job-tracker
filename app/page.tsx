@@ -12,6 +12,7 @@ export type Job = {
   Location: string;
   Job_URL: string;
   date: string;
+  status: string;
 };
 
 export default function Home() {
@@ -41,6 +42,7 @@ export default function Home() {
       Location: data.Location,
       Job_URL: data.Job_URL,
       date: today,
+      status: "APPLIED",
     };
 
     setJobs((prevJobs) => [...prevJobs, newPost]);
