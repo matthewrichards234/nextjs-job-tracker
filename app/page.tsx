@@ -13,6 +13,7 @@ export type Job = {
   Job_URL: string;
   date: string;
   status: string;
+  id: string;
 };
 
 export default function Home() {
@@ -43,9 +44,27 @@ export default function Home() {
       Job_URL: data.Job_URL,
       date: today,
       status: "APPLIED",
+      id: crypto.randomUUID(),
     };
 
     setJobs((prevJobs) => [...prevJobs, newPost]);
+
+    console.log(newPost);
+  }
+
+  function handleDeleteJob(id: string) {
+    const filteredJobs = jobs.filter((job: Job) => {
+      console.log("JOB ID: ", job.id);
+      return job.id !== id;
+    });
+    setJobs(filteredJobs);
+    console.log(filteredJobs);
+    console.log("FUNCTIONC CALLED");
+    console.log(jobs);
+    console.log(
+      id,
+      jobs.map((job) => job.id),
+    );
   }
 
   return (
@@ -59,7 +78,11 @@ export default function Home() {
       >
         upload job
       </button>
-      <Board setOpenJobModal={openJobInformationModal} listOfJobs={jobs} />
+      <Board
+        setOpenJobModal={openJobInformationModal}
+        listOfJobs={jobs}
+        handleDeleteJob={handleDeleteJob}
+      />
       <UploadForm
         isOpen={isModalOpen === "upload-form"}
         handleCloseForm={closeModal}

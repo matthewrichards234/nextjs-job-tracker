@@ -7,9 +7,11 @@ import StatusSection from "./StatusSection";
 const Board = ({
   setOpenJobModal,
   listOfJobs,
+  handleDeleteJob,
 }: {
   setOpenJobModal: () => void;
   listOfJobs: Job[];
+  handleDeleteJob: (id: string) => void;
 }) => {
   const statuses = ["APPLIED", "INTERVIEW", "OFFER", "REJECTED"];
 
@@ -24,6 +26,7 @@ const Board = ({
             jobs={listOfJobs.filter((job) => {
               return job.status === status;
             })}
+            handleDeleteJob={handleDeleteJob}
           />
         );
       })}

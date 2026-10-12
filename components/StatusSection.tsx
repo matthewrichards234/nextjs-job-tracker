@@ -8,10 +8,12 @@ const StatusSection = ({
   title,
   handleOpenModal,
   jobs,
+  handleDeleteJob,
 }: {
   title: string;
   handleOpenModal: () => void;
   jobs: Job[];
+  handleDeleteJob: (id: string) => void;
 }) => {
   return (
     <div className="flex flex-col gap-4 min-w-0 h-full border border-blue-500 p-3">
@@ -19,12 +21,14 @@ const StatusSection = ({
       {jobs.map((job) => {
         return (
           <JobCard
-            key={job}
+            id={job.id}
+            key={job.id}
             onClick={handleOpenModal}
             title={job.Title}
             company={job.Company}
             date={job.date}
             status={job.status}
+            handleDeleteJob={handleDeleteJob}
           />
         );
       })}
