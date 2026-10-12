@@ -48,13 +48,10 @@ export default function Home() {
     };
 
     setJobs((prevJobs) => [...prevJobs, newPost]);
-
-    console.log(newPost);
   }
 
   function handleDeleteJob(id: string) {
     const filteredJobs = jobs.filter((job: Job) => {
-      console.log("JOB ID: ", job.id);
       return job.id !== id;
     });
     setJobs(filteredJobs);
