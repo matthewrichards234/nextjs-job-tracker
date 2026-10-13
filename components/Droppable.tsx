@@ -8,5 +8,12 @@ export default function Droppable({
 }) {
   const { ref } = useDroppable({ id });
 
-  return <div ref={ref}>{children}</div>;
+  return (
+    <div
+      ref={ref}
+      className="min-h-[300px] rounded-2xl border border-gray-200 bg-gray-50/80 p-3 transition-colors"
+    >
+      {children}
+    </div>
+  );
 }

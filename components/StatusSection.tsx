@@ -14,8 +14,13 @@ const StatusSection = ({
   handleDeleteJob: (id: string) => void;
 }) => {
   return (
-    <div className="flex flex-col gap-4 min-w-0 h-full border border-blue-500 p-3">
-      <p className="underline text-center text-lg/5">{title}</p>
+    <div className="flex h-full min-h-[300px] min-w-0 flex-col gap-3 rounded-2xl border border-gray-200 bg-gray-50/80 p-4 transition-colors">
+      <p className="mb-2 border-b border-gray-200 pb-3 text-sm font-bold tracking-wider text-gray-600">
+        {title}
+        <span className="ml-2 rounded-full bg-gray-200 px-2 py-1 text-xs font-medium">
+          {jobs.length}
+        </span>
+      </p>
       {jobs.map((job) => {
         return (
           <JobCard

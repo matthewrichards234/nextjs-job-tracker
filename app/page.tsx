@@ -19,6 +19,8 @@ export type Job = {
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState("");
 
+  const [selectedJob, setSelectedJob] = useState<Job | null>(null);
+
   const [jobs, setJobs] = useState<Job[]>([]);
 
   function closeModal() {
@@ -29,7 +31,8 @@ export default function Home() {
     setIsModalOpen("upload-form");
   }
 
-  function openJobInformationModal() {
+  function openJobInformationModal(job: Job) {
+    setSelectedJob(job);
     setIsModalOpen("job-information");
   }
 
@@ -66,32 +69,91 @@ export default function Home() {
   }
 
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <h1 className="font-bold text-5xl">
-        NEXTJS SIMPLE JOB APPLICATION TRACKER
-      </h1>
-      <button
-        className="bg-black text-[#F5F5DC] border rounded-lg px-4 py-2 hover:bg-[#2C2D2D] cursor-pointer"
-        onClick={openUploadFormModal}
-      >
-        upload job
-      </button>
-      <Board
-        setOpenJobModal={openJobInformationModal}
-        listOfJobs={jobs}
-        handleDeleteJob={handleDeleteJob}
-        handleUpdateJobStatus={handleUpdateJobStatus}
-      />
+    <main className="min-h-screen bg-[#F8F9FC] px-6 py-10 font-sans text-gray-900 md:px-10">
+      <div className="mx-auto flex max-w-[1600px] flex-col gap-8">
+        {/* Header */}
+        <header className="flex flex-col justify-between gap-5 sm:flex-row sm:items-center">
+          <div>
+            <p className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600">
+              JobFlow
+            </p>
+            <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
+              Job Application Tracker
+            </h1>
+            <p className="mt-2 text-sm text-gray-500">
+              Keep track of your applications and move toward your next
+              opportunity.
+            </p>
+          </div>
+
+          <button
+            className="inline-flex items-center justify-center gap-2 self-start rounded-xl bg-gray-900 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-gray-700 active:scale-[0.98] sm:self-auto"
+            onClick={openUploadFormModal}
+          >
+            <span className="text-lg">+</span>
+            Add job
+          </button>
+        </header>
+
+        {/* Overview */}
+        <section className="grid grid-cols-2 gap-4 md:grid-cols-4">
+          {[
+            { label: "Total applications", value: jobs.length },
+            {
+              label: "Interviews",
+              value: jobs.filter((job) => job.status === "INTERVIEW").length,
+            },
+            {
+              label: "Offers",
+              value: jobs.filter((job) => job.status === "OFFER").length,
+            },
+            {
+              label: "Rejected",
+              value: jobs.filter((job) => job.status === "REJECTED").length,
+            },
+          ].map((item) => (
+            <div
+              key={item.label}
+              className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm"
+            >
+              <p className="text-sm font-medium text-gray-500">{item.label}</p>
+              <p className="mt-3 text-3xl font-bold tracking-tight">
+                {item.value}
+              </p>
+            </div>
+          ))}
+        </section>
+
+        {/* Kanban Board */}
+        <section className="overflow-hidden rounded-2xl border border-gray-200 bg-white p-4 shadow-sm md:p-6">
+          <div className="mb-5 flex items-center justify-between">
+            <h2 className="text-lg font-semibold">Your applications</h2>
+            <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">
+              {jobs.length} jobs
+            </span>
+          </div>
+
+          <Board
+            setOpenJobModal={openJobInformationModal}
+            listOfJobs={jobs}
+            handleDeleteJob={handleDeleteJob}
+            handleUpdateJobStatus={handleUpdateJobStatus}
+          />
+        </section>
+      </div>
+
       <UploadForm
         isOpen={isModalOpen === "upload-form"}
         handleCloseForm={closeModal}
         setIsOpen={setIsModalOpen}
         handleCreatePost={handleCreatePost}
       />
+
       <JobModal
         isOpen={isModalOpen === "job-information"}
         handleCloseModal={closeModal}
+        job={selectedJob}
       />
-    </div>
+    </main>
   );
 }

@@ -32,7 +32,7 @@ const Board = ({
         handleUpdateJobStatus(String(source.id), String(target.id));
       }}
     >
-      <div className="grid grid-cols-4 gap-4 w-[95%] h-[85vh] bg-[#F5F5DC] text-black overflow-auto">
+      <div className="grid w-full grid-cols-1 gap-5 overflow-x-auto pb-4 sm:grid-cols-2 xl:grid-cols-4">
         {statuses.map((status) => {
           return (
             <Droppable key={status} id={status}>
