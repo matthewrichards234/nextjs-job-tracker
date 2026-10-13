@@ -9,7 +9,7 @@ const StatusSection = ({
   handleDeleteJob,
 }: {
   title: string;
-  handleOpenModal: () => void;
+  handleOpenModal: (job: Job) => void;
   jobs: Job[];
   handleDeleteJob: (id: string) => void;
 }) => {
@@ -26,7 +26,7 @@ const StatusSection = ({
           <JobCard
             id={job.id}
             key={job.id}
-            onClick={handleOpenModal}
+            onClick={() => handleOpenModal(job)}
             title={job.Title}
             company={job.Company}
             date={job.date}

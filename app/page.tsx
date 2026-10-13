@@ -51,6 +51,8 @@ export default function Home() {
     };
 
     setJobs((prevJobs) => [...prevJobs, newPost]);
+
+    console.log(newPost);
   }
 
   function handleDeleteJob(id: string) {

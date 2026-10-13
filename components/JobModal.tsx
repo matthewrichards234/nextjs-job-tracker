@@ -28,14 +28,14 @@ const JobModal = ({
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="rounded-xl bg-gray-50 p-4">
               <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">
-                Status
+                {job.status}
               </p>
               <p className="mt-2 font-semibold text-indigo-600">{job.status}</p>
             </div>
 
             <div className="rounded-xl bg-gray-50 p-4">
               <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">
-                Date applied
+                {job.date}
               </p>
               <p className="mt-2 font-semibold text-gray-900">{job.date}</p>
             </div>
