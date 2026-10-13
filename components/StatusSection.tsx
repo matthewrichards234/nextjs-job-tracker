@@ -1,7 +1,5 @@
 "use client";
-
 import type { Job } from "@/app/page";
-
 import JobCard from "./JobCard";
 
 const StatusSection = ({

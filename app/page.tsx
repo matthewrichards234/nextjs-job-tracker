@@ -57,6 +57,14 @@ export default function Home() {
     setJobs(filteredJobs);
   }
 
+  function handleUpdateJobStatus(id: string, newStatus: string) {
+    setJobs((prevJobs) =>
+      prevJobs.map((job) =>
+        job.id === id ? { ...job, status: newStatus } : job,
+      ),
+    );
+  }
+
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <h1 className="font-bold text-5xl">
@@ -72,6 +80,7 @@ export default function Home() {
         setOpenJobModal={openJobInformationModal}
         listOfJobs={jobs}
         handleDeleteJob={handleDeleteJob}
+        handleUpdateJobStatus={handleUpdateJobStatus}
       />
       <UploadForm
         isOpen={isModalOpen === "upload-form"}
