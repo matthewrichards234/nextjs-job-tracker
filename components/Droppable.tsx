@@ -11,7 +11,7 @@ export default function Droppable({
   return (
     <div
       ref={ref}
-      className="min-h-[300px] rounded-2xl border border-gray-200 bg-gray-50/80 p-3 transition-colors"
+      className="min-h-75 rounded-2xl border border-gray-200 bg-gray-50/80 p-3 transition-colors"
     >
       {children}
     </div>

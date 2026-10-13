@@ -13,7 +13,7 @@ const Board = ({
   handleDeleteJob,
   handleUpdateJobStatus,
 }: {
-  setOpenJobModal: () => void;
+  setOpenJobModal: (job: Job) => void;
   listOfJobs: Job[];
   handleDeleteJob: (id: string) => void;
   handleUpdateJobStatus: (id: string, newStatus: string) => void;
@@ -27,7 +27,7 @@ const Board = ({
 
         const { source, target } = event.operation;
 
-        if (!target) return;
+        if (!source || !target) return;
 
         handleUpdateJobStatus(String(source.id), String(target.id));
       }}

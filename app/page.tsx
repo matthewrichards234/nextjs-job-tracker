@@ -4,7 +4,7 @@ import Board from "@/components/Board";
 import UploadForm from "@/components/UploadForm";
 import JobModal from "@/components/JobModal";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export type Job = {
   Company: string;
@@ -36,7 +36,7 @@ export default function Home() {
     setIsModalOpen("job-information");
   }
 
-  function handleCreatePost(data) {
+  function handleCreatePost(data: Job) {
     const date = new Date();
     const today = date.toLocaleDateString();
 

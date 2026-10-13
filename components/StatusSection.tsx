@@ -14,7 +14,7 @@ const StatusSection = ({
   handleDeleteJob: (id: string) => void;
 }) => {
   return (
-    <div className="flex h-full min-h-[300px] min-w-0 flex-col gap-3 rounded-2xl border border-gray-200 bg-gray-50/80 p-4 transition-colors">
+    <div className="flex h-full min-h-75 min-w-0 flex-col gap-3 rounded-2xl border border-gray-200 bg-gray-50/80 p-4 transition-colors">
       <p className="mb-2 border-b border-gray-200 pb-3 text-sm font-bold tracking-wider text-gray-600">
         {title}
         <span className="ml-2 rounded-full bg-gray-200 px-2 py-1 text-xs font-medium">
@@ -30,7 +30,6 @@ const StatusSection = ({
             title={job.Title}
             company={job.Company}
             date={job.date}
-            status={job.status}
             handleDeleteJob={handleDeleteJob}
           />
         );
