@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NextJSJobTracker
+
+A simple job application tracker built with Next.js that helps you organize your job search by tracking applications through different stages.
+
+## Features
+
+- **Create Job Applications** — Add a job's title, company, location, and posting URL.
+- **Kanban Board** — Organize applications by status: Applied, Interview, Offer, and Rejected.
+- **Drag and Drop** — Move job cards between statuses as your application progresses.
+- **Job Details** — Click a job card to view its details, including application date and current status.
+- **Delete Applications** — Remove job applications from the board.
+- **Responsive Design** — View and manage your applications across different screen sizes.
+- **Navigation** — Navigate between the Home and About pages.
+- **GitHub Integration** — Visit the repository from the About page to star the project.
+
+## Tech Stack
+
+- **Next.js** — React framework for routing, layouts, and application structure.
+- **React** — Component-based UI development and state management.
+- **TypeScript** — Static typing for components, props, and job application data.
+- **Tailwind CSS** — Utility-first styling for responsive layouts and UI components.
+- **Flowbite React** — Modal components for displaying job details.
+- **@dnd-kit/react** — Drag-and-drop functionality for moving job cards between application statuses.
+- **Lucide React** — Icons used throughout the interface.
+- **Bun** — JavaScript runtime and package manager.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- [Bun](https://bun.sh/)
+- [Node.js](https://nodejs.org/) (if required by your environment)
+
+### Installation
+
+Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/matthewrichards234/nextjs-job-tracker.git
+cd nextjs-job-tracker
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Install dependencies:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+bun install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Start the development server:
 
-## Learn More
+```bash
+bun run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Goals
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project was built to practice and strengthen my understanding of Next.js, TypeScript, React state management, component composition, and drag-and-drop interactions while creating a practical tool for managing a job search.
 
-## Deploy on Vercel
+## Future Improvements
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Persist job applications using browser `localStorage`.
+- Add job application editing.
+- Add search and filtering.
+- Add application statistics and progress tracking.
+- Improve accessibility and mobile interactions.

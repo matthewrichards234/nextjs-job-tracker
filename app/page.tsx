@@ -4,7 +4,7 @@ import Board from "@/components/Board";
 import UploadForm from "@/components/UploadForm";
 import JobModal from "@/components/JobModal";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export type Job = {
   Company: string;
