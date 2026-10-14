@@ -1,4 +1,23 @@
-const FieldInputs = ({ register, name, placeholder, required }) => {
+import { type UseFormRegister } from "react-hook-form";
+
+type JobFormData = {
+  Company: string;
+  Title: string;
+  Location: string;
+  Job_URL: string;
+};
+
+const FieldInputs = ({
+  register,
+  name,
+  placeholder,
+  required,
+}: {
+  register: UseFormRegister<JobFormData>;
+  name: keyof JobFormData;
+  placeholder: string;
+  required: boolean;
+}) => {
   return (
     <input
       {...register(name, { required: required })}
