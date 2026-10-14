@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import FieldInputs from "./FieldInputs";
 import { Modal, ModalBody, ModalHeader, ModalFooter } from "flowbite-react";
 import ModalSection from "./ModalSection";
-import { Job } from "@/app/page";
+import { JobFormData } from "./FieldInputs";
 
 const UploadForm = ({
   isOpen,
@@ -15,10 +15,10 @@ const UploadForm = ({
   isOpen: boolean;
   handleCloseForm: () => void;
   setIsOpen: (state: string) => void;
-  handleCreatePost: (job: Job) => void;
+  handleCreatePost: (job: JobFormData) => void;
 }) => {
-  const { register, handleSubmit, reset } = useForm<Job>();
-  function onSubmit(data: Job) {
+  const { register, handleSubmit, reset } = useForm<JobFormData>();
+  function onSubmit(data: JobFormData) {
     setIsOpen("");
     handleCreatePost(data);
     reset();

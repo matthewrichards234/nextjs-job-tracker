@@ -1,6 +1,6 @@
 import { type UseFormRegister } from "react-hook-form";
 
-type JobFormData = {
+export type JobFormData = {
   Company: string;
   Title: string;
   Location: string;
