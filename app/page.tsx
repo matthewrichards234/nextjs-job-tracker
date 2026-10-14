@@ -3,6 +3,7 @@
 import Board from "@/components/Board";
 import UploadForm from "@/components/UploadForm";
 import JobModal from "@/components/JobModal";
+import type { JobFormData } from "@/components/FieldInputs";
 
 import { useState } from "react";
 
@@ -36,7 +37,7 @@ export default function Home() {
     setIsModalOpen("job-information");
   }
 
-  function handleCreatePost(data: Job) {
+  function handleCreatePost(data: JobFormData) {
     const date = new Date();
     const today = date.toLocaleDateString();
 
